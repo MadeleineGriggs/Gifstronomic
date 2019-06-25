@@ -116,7 +116,7 @@
 
 #food-input {
     margin-top: 1rem;
-    margin-left: 0.5rem;
+    margin-left: 1rem;
     border: 0px solid white;
     background-color: white;
     border-radius: 3px;
@@ -144,7 +144,7 @@
     margin-top: 0.5rem;
 }
 
-#gif-dump {
+#gif-dump, #favorites-dump {
     margin: 1rem auto;
     width: 80vw;
     background-color: var(--light-gray);
@@ -152,7 +152,7 @@
     border-radius: 10px;
 }
 
-#gifs-here {
+#gifs-here, #fav-gifs-here {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -161,7 +161,7 @@
     padding-bottom: 2rem;
 }
 
-#gifs-here div {
+#gifs-here div, #fav-gifs-here div{
     margin-top: 1rem;
     margin-right: 2rem;
     background-color: white;
@@ -170,13 +170,13 @@
     padding: 10px;
 }
 
-#gif-title {
+#gif-title, #favs-title {
     padding-top: 1rem;
     background-color: var(--light-gray) !important;
     border-radius: 10px;
 }
 
-#gif-dump h2 {
+#gif-dump h2, #favorites-dump h2 {
     font-family: 'Lobster', cursive;
     color: var(--mid-gray);
     font-size: 2.5rem;
@@ -185,13 +185,15 @@
     margin-bottom: 0.5rem;
 }
 
-#gif-dump hr {
+#gif-dump hr, #favorites-dump hr {
     border: 0;
     color: var(--mid-gray);
     background-color: var(--mid-gray);
     width: 70vw;
     height: 2px;
 }
+
+
 
 .gif {
     border-radius: 5px;

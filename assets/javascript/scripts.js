@@ -102,6 +102,10 @@
         }
     }
 
+    $("#favorite-gifs-btn").on("click", function() {
+        $("#favorites-dump").toggleClass("hidden");
+    })
+
     $(document).on("click", ".food", displayFoodInfo);
     $(document).on("click", ".gif", foodAnimate);
     $(document).on("click", ".gif", addFavs);
