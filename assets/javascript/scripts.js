@@ -2,9 +2,10 @@
 
 
     var foods = ["Pizza", "Burger", "Ice Cream", "Burritos", "Tacos", "Salad", "Avocado Toast", "Candy", "Chocolate"];
-    var favs = [];
 
     var addingFavs = false;
+    var favCount = 0;
+
 
     function displayFoodInfo() {
 
@@ -21,9 +22,8 @@
             for (var i = 0; i < results.length; i++) {
 
               var foodDiv = $("<div>");
-  
-              var p = $("<p>").text("Rating: " + results[i].rating);
-
+              var rating = $("<p>").text("Rating: " + results[i].rating).attr("class", "rating");
+              var title = $("<p>").text("Title: " + results[i].title).attr("class", "title");
               var foodImage = $("<img>");
 
               foodImage.attr("class", "gif");
@@ -32,11 +32,11 @@
               foodImage.attr("data-animated", results[i].images.fixed_height.url);
               foodImage.attr("data-still", results[i].images.fixed_height_still.url);
   
-
-              foodDiv.append(p);
               foodDiv.append(foodImage);
+              foodDiv.append(title);
+              foodDiv.append(rating);
 
-              $("#gif-dump").prepend(foodDiv);
+              $("#gifs-here").prepend(foodDiv);
             }
         });
     }
@@ -84,7 +84,22 @@
     })
 
     function addFavs() {
-
+        if (addingFavs === true) {
+            favCount++;
+            var itemRating = $(this).siblings(".rating").text();
+            var itemTitle = $(this).siblings(".title").text();
+            console.log("The item rating is: " + itemRating);
+            var itemClass = $(this).attr("class");
+            var itemSrc = $(this).attr("src");
+            var itemAnimate = $(this).attr("data-animated");
+            var itemStill = $(this).attr("data-still");
+            localStorage.setItem("itemTitle" + favCount, itemTitle);
+            localStorage.setItem("itemRating" + favCount, itemRating);
+            localStorage.setItem("itemClass" + favCount, itemClass);
+            localStorage.setItem("itemSrc" + favCount, itemSrc);
+            localStorage.setItem("itemAnimate" + favCount, itemAnimate);
+            localStorage.setItem("itemStill" + favCount, itemStill);
+        }
     }
 
     $(document).on("click", ".food", displayFoodInfo);

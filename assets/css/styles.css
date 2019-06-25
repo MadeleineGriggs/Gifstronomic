@@ -1,0 +1,199 @@
+:root {
+    --dark-blueberry: #444273;
+    --bright-blueberry: #6C63FE;
+    --light-gray: #DDECF2;
+    --mid-gray: #67657D;
+    --accent-salmon: #FF6C8C;
+}
+
+.hidden {
+    display: none;
+}
+
+#button-area {
+    margin: 1rem auto;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-bottom: 1rem;
+}
+
+.food {
+    background-color: var(--bright-blueberry);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: white;
+    border: 0px solid white;
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    margin-top: 1.5rem;
+}
+
+
+.title-font {
+    font-family: 'Lobster', cursive;
+    color: var(--dark-blueberry);
+    font-size: 5rem;
+}
+
+.title-area {
+    margin: 1rem auto;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-area h1 {
+    margin-left: 2rem;
+}
+
+.form-and-search {
+    margin: 1rem auto;
+    width: 80vw;
+    background-color: var(--light-gray);
+    border-radius: 10px;
+}
+
+.form-and-search h2 {
+    font-family: 'Lobster', cursive;
+    color: var(--mid-gray);
+    font-size: 2.5rem;
+    text-align: center;
+    padding-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-and-search hr {
+    border: 0;
+    color: var(--mid-gray);
+    background-color: var(--mid-gray);
+    width: 70vw;
+    height: 2px;
+}
+
+.form-and-search button {
+    background-color: var(--accent-salmon);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: white;
+    border: 0px solid white;
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+}
+
+#food-form {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.favs-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#add-fav {
+    margin-left: 2rem;
+}
+
+.form-and-search label {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--dark-blueberry);
+}
+
+#food-input {
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+    border: 0px solid white;
+    background-color: white;
+    border-radius: 3px;
+    padding: 10px 5px;
+    width: 250px;
+}
+
+#add-food {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    background-color: var(--accent-salmon);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: white;
+    border: 0px solid white;
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+}
+
+
+.rating, .title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--mid-gray);
+    margin-top: 0.5rem;
+}
+
+#gif-dump {
+    margin: 1rem auto;
+    width: 80vw;
+    background-color: var(--light-gray);
+    border: 0px solid white;
+    border-radius: 10px;
+}
+
+#gifs-here {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+#gifs-here div {
+    margin-top: 1rem;
+    margin-right: 2rem;
+    background-color: white;
+    border: 0px solid white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#gif-title {
+    padding-top: 1rem;
+    background-color: var(--light-gray) !important;
+    border-radius: 10px;
+}
+
+#gif-dump h2 {
+    font-family: 'Lobster', cursive;
+    color: var(--mid-gray);
+    font-size: 2.5rem;
+    text-align: center;
+    padding-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+#gif-dump hr {
+    border: 0;
+    color: var(--mid-gray);
+    background-color: var(--mid-gray);
+    width: 70vw;
+    height: 2px;
+}
+
+.gif {
+    border-radius: 5px;
+}
+
