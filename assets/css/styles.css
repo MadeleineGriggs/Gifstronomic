@@ -1,7 +1,8 @@
 :root {
     --dark-blueberry: #444273;
     --bright-blueberry: #6C63FE;
-    --light-gray: #DDECF2;
+    --light-gray: #ddecf2;
+    --slightly-darker-gray: #c3d0d6;
     --mid-gray: #67657D;
     --accent-salmon: #FF6C8C;
 }
@@ -69,11 +70,12 @@
 }
 
 .form-and-search hr {
-    border: 0;
-    color: var(--mid-gray);
-    background-color: var(--mid-gray);
+    border: 0px solid white;
+    color: var(--slightly-darker-gray);
+    background-color: var(--slightly-darker-gray);
     width: 70vw;
-    height: 2px;
+    height: 5px;
+    border-radius: 10px;
 }
 
 .form-and-search button {
@@ -117,6 +119,8 @@
 #food-input {
     margin-top: 1rem;
     margin-left: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--mid-gray);
     border: 0px solid white;
     background-color: white;
     border-radius: 3px;
@@ -186,16 +190,25 @@
 }
 
 #gif-dump hr, #favorites-dump hr {
-    border: 0;
-    color: var(--mid-gray);
-    background-color: var(--mid-gray);
+    border: 0px solid white;
+    color: var(--slightly-darker-gray);
+    background-color: var(--slightly-darker-gray);
     width: 70vw;
-    height: 2px;
+    height: 5px;
+    border-radius: 10px;
 }
-
-
 
 .gif {
     border-radius: 5px;
+}
+
+#customize-alert {
+    text-align: center;
+    margin: 1rem auto;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--mid-gray);
+    padding-bottom: 2rem;
+    line-height: 2rem;
 }
 

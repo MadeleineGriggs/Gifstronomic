@@ -3,6 +3,7 @@
 
     var foods = ["Pizza", "Burger", "Ice Cream", "Burritos", "Tacos", "Salad", "Avocado Toast", "Candy", "Chocolate"];
 
+
     var addingFavs = false;
     var favCount = 0;
 
@@ -74,36 +75,83 @@
         event.preventDefault();
         var food = $("#food-input").val().trim();
         foods.push(food);
-        renderButtons();
+        if ($("#customize-alert").text() != "") {
+            $("#customize-alert").append("<br />" + food +" has been added to buttons. Click on it to see the gifs!"); 
+        } else {
+            $("#customize-alert").toggleClass("hidden");
+            $("#customize-alert").html(food +" has been added to buttons. Click on it to see the gifs!");
+            setTimeout(function() {
+                $("#customize-alert").html("");
+                $("#customize-alert").toggleClass("hidden");
+            }, 5000);
+            renderButtons();
+        }
     });
 
     $("#add-fav").on("click", function() {
         addingFavs = !addingFavs;
-        console.log(addingFavs);
-        
+        if ($("#customize-alert").text() != "") {
+            $("#customize-alert").append("<br />" + "Click on a gif below to add it to your favourites!"); 
+        } else {
+            $("#customize-alert").toggleClass("hidden");
+            $("#customize-alert").html("Click on a gif below to add it to your favourites!");
+            setTimeout(function() {
+                $("#customize-alert").html("");
+                $("#customize-alert").toggleClass("hidden");
+            }, 5000);
+        }
     })
 
     function addFavs() {
         if (addingFavs === true) {
+            var checkCount = localStorage.getItem("currentFavCount");
+            console.log("The CheckCount is: " + checkCount);
+            if (checkCount != null) {
+                favCount = checkCount;
+                favCount++;
+            } else {
             favCount++;
+            }
+            localStorage.setItem("currentFavCount", favCount);
+            var favsArray = [ ];
             var itemRating = $(this).siblings(".rating").text();
             var itemTitle = $(this).siblings(".title").text();
-            console.log("The item rating is: " + itemRating);
-            var itemClass = $(this).attr("class");
             var itemSrc = $(this).attr("src");
             var itemAnimate = $(this).attr("data-animated");
             var itemStill = $(this).attr("data-still");
-            localStorage.setItem("itemTitle" + favCount, itemTitle);
-            localStorage.setItem("itemRating" + favCount, itemRating);
-            localStorage.setItem("itemClass" + favCount, itemClass);
-            localStorage.setItem("itemSrc" + favCount, itemSrc);
-            localStorage.setItem("itemAnimate" + favCount, itemAnimate);
-            localStorage.setItem("itemStill" + favCount, itemStill);
+            console.log("The values I want are" + itemTitle, itemRating, itemSrc, itemAnimate, itemStill);
+            favsArray.push(itemTitle, itemRating, itemSrc, itemAnimate, itemStill);
+            console.log(JSON.stringify(favsArray));
+            localStorage.setItem("item" + favCount, JSON.stringify(favsArray));
+            var retrievedItem = localStorage.getItem("item1");
+            var newFav = JSON.parse(retrievedItem);
+            addingFavs = false;
         }
     }
 
     $("#favorite-gifs-btn").on("click", function() {
         $("#favorites-dump").toggleClass("hidden");
+        $("#fav-gifs-here").empty();
+
+        for (i = 1 ; i < localStorage.length ; i++) {
+            var item = localStorage.getItem("item" + i);
+            var newFav = JSON.parse(item);
+            console.log("This is the contents of item: " + newFav);
+            favItemTitle = $("<p>").text(newFav[0]).attr("class", "title");
+            favItemRating = $("<p>").text(newFav[1]).attr("class", "rating");
+            var favFoodImage = $("<img>");
+            favFoodImage.attr("src", newFav[2]);
+            favFoodImage.attr("class", "gif");
+            favFoodImage.attr("data-animated", newFav[3]);
+            favFoodImage.attr("data-still", newFav[4]);
+
+            var favFoodDiv = $("<div>");
+
+            favFoodDiv.append(favFoodImage);
+            favFoodDiv.append(favItemTitle);
+            favFoodDiv.append(favItemRating);
+            $("#fav-gifs-here").prepend(favFoodDiv);
+        }
     })
 
     $(document).on("click", ".food", displayFoodInfo);
