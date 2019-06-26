@@ -36,5 +36,5 @@ You can use this app here:
 
 #### Title Page
 
-![Image of page Large Screen](assets/images/screenshot1.PNG)
-![Image of page Smaller Screen](assets/images/screenshot2.PNG)
+![Image of page Large Screen](assets/images/Screenshot1.PNG)
+![Image of page Smaller Screen](assets/images/Screenshot2.PNG)
