@@ -212,3 +212,51 @@
     line-height: 2rem;
 }
 
+
+/* ---------Media Queries--------- */
+
+
+@media only screen and (max-width: 980px) {
+
+    #food-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #add-food {
+        margin-top: 0rem;
+        margin-left: 0rem;
+    }
+
+}
+
+@media only screen and (max-width: 640px) {
+
+    #button-area {
+        width: 90vw;
+    }
+
+    .form-and-search {
+        width: 90vw;
+    }
+
+    #gif-dump, #favorites-dump {
+        width: 90vw;
+    }
+
+    .favs-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #add-fav {
+        margin-top: 1rem;
+        margin-left: 0rem;
+    }
+
+
+
+}
+

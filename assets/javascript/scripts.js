@@ -90,6 +90,7 @@
 
     $("#add-fav").on("click", function() {
         addingFavs = !addingFavs;
+        $("#favorites-dump").toggleClass("hidden");
         if ($("#customize-alert").text() != "") {
             $("#customize-alert").append("<br />" + "Click on a gif below to add it to your favourites!"); 
         } else {
@@ -105,27 +106,24 @@
     function addFavs() {
         if (addingFavs === true) {
             var checkCount = localStorage.getItem("currentFavCount");
-            console.log("The CheckCount is: " + checkCount);
             if (checkCount != null) {
                 favCount = checkCount;
                 favCount++;
             } else {
-            favCount++;
+                favCount++;
             }
-            localStorage.setItem("currentFavCount", favCount);
-            var favsArray = [ ];
-            var itemRating = $(this).siblings(".rating").text();
-            var itemTitle = $(this).siblings(".title").text();
-            var itemSrc = $(this).attr("src");
-            var itemAnimate = $(this).attr("data-animated");
-            var itemStill = $(this).attr("data-still");
-            console.log("The values I want are" + itemTitle, itemRating, itemSrc, itemAnimate, itemStill);
-            favsArray.push(itemTitle, itemRating, itemSrc, itemAnimate, itemStill);
-            console.log(JSON.stringify(favsArray));
-            localStorage.setItem("item" + favCount, JSON.stringify(favsArray));
-            var retrievedItem = localStorage.getItem("item1");
-            var newFav = JSON.parse(retrievedItem);
-            addingFavs = false;
+                localStorage.setItem("currentFavCount", favCount);
+                var favsArray = [ ];
+                var itemRating = $(this).siblings(".rating").text();
+                var itemTitle = $(this).siblings(".title").text();
+                var itemSrc = $(this).attr("src");
+                var itemAnimate = $(this).attr("data-animated");
+                var itemStill = $(this).attr("data-still");
+
+                favsArray.push(itemTitle, itemRating, itemSrc, itemAnimate, itemStill);
+                localStorage.setItem("item" + favCount, JSON.stringify(favsArray));
+                addingFavs = false;
+
         }
     }
 
@@ -136,7 +134,6 @@
         for (i = 1 ; i < localStorage.length ; i++) {
             var item = localStorage.getItem("item" + i);
             var newFav = JSON.parse(item);
-            console.log("This is the contents of item: " + newFav);
             favItemTitle = $("<p>").text(newFav[0]).attr("class", "title");
             favItemRating = $("<p>").text(newFav[1]).attr("class", "rating");
             var favFoodImage = $("<img>");
