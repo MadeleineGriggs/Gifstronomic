@@ -11,6 +11,8 @@
     display: none;
 }
 
+/* The title and top button area styling */
+
 #button-area {
     margin: 1rem auto;
     width: 80vw;
@@ -52,6 +54,9 @@
 .title-area h1 {
     margin-left: 2rem;
 }
+
+
+/* The Customize Area styling*/
 
 .form-and-search {
     margin: 1rem auto;
@@ -140,6 +145,17 @@
     padding: 0.5rem 1rem;
 }
 
+#customize-alert {
+    text-align: center;
+    margin: 1rem auto;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--mid-gray);
+    padding-bottom: 2rem;
+    line-height: 2rem;
+}
+
+/* Styling for the areas where gifs are placed. */
 
 .rating, .title {
     font-family: 'Montserrat', sans-serif;
@@ -202,15 +218,6 @@
     border-radius: 5px;
 }
 
-#customize-alert {
-    text-align: center;
-    margin: 1rem auto;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    color: var(--mid-gray);
-    padding-bottom: 2rem;
-    line-height: 2rem;
-}
 
 
 /* ---------Media Queries--------- */

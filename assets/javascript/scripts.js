@@ -8,6 +8,7 @@
     var favCount = 0;
 
 
+    //calls the giphy API and retrieves 10 gifs from it. Then appends the information to a new div, and prepends it to the gifs here area.
     function displayFoodInfo() {
 
         var food = $(this).attr("data-name");
@@ -42,7 +43,7 @@
         });
     }
 
-
+    // creates buttons for each item stored in the foods array.
     function renderButtons() {
 
         $("#button-area").empty();
@@ -56,6 +57,8 @@
         }
     }
 
+
+    // function to switch out one Src for another in each gif, so that the static image will be replaced with the gif version when the user clicks on it.
     function foodAnimate() {
 
         var state = $(this).attr("data-state");
@@ -70,7 +73,7 @@
         }
     };
 
-
+    //adds a button at the top with the food item the user has decided to add. Also adds a small alert below to let the user know that it has been added.
     $("#add-food").on("click", function(event) {
         event.preventDefault();
         var food = $("#food-input").val().trim();
@@ -88,9 +91,16 @@
         }
     });
 
+
+    // on click, change the addingFavs flag, hide the favourite gifs div so it doesn't take up as much room, and display a small alert to let
+    // the user know what they should do.
     $("#add-fav").on("click", function() {
         addingFavs = !addingFavs;
+        if ($("#favorites-dump").hasClass("hidden")) {
+
+        }else {
         $("#favorites-dump").toggleClass("hidden");
+        }
         if ($("#customize-alert").text() != "") {
             $("#customize-alert").append("<br />" + "Click on a gif below to add it to your favourites!"); 
         } else {
@@ -103,6 +113,8 @@
         }
     })
 
+
+    // Adds a favourite gif to localStorage, and adds one to the favCount.
     function addFavs() {
         if (addingFavs === true) {
             var checkCount = localStorage.getItem("currentFavCount");
@@ -127,6 +139,10 @@
         }
     }
 
+
+    // When the user clicks to see their favourite gifs, this function checks local storage and uses the items contained within to display all previous items the user
+    // added as a favourite gif.
+    // I left the gifs in their animated state, but the user can click on them to return to a static image.
     $("#favorite-gifs-btn").on("click", function() {
         $("#favorites-dump").toggleClass("hidden");
         $("#fav-gifs-here").empty();
