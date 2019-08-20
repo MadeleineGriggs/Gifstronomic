@@ -14,7 +14,7 @@ The user can also add new buttons, so they can search for other gifs. They may a
 This project was written using: HTML5, CSS3, jQuery 3.4.1, and Javascript. It also uses the Giphy API.
 You can use this app here:
 
-[Gifstronomic](https://typicu.github.io/Gifstronomic/)
+[Gifstronomic](https://madeleinegriggs.github.io/Gifstronomic/)
 
 
 
